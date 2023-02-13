@@ -18,6 +18,7 @@ class Function
                     string tmp = Regex.Replace(item, "type=\"\\d*\"", "type=\"18\"");
                     tmp = Regex.Replace(tmp, "dsId=\"\\d*\"", "dsId=\"101\"");
                     System.Console.WriteLine(tmp);
+                    System.Console.WriteLine();
                     rows[index] = tmp;
                 }
 
@@ -27,6 +28,7 @@ class Function
                     string tmp = Regex.Replace(item, "type=\"\\d*\"", "type=\"18\"");
                     tmp = Regex.Replace(tmp, "dsId=\"\\d*\"", "dsId=\"105\"");
                     System.Console.WriteLine(tmp);
+                    System.Console.WriteLine();
                     rows[index] = tmp;
                 }
                 index++;
@@ -55,6 +57,7 @@ class Function
                     string tmp = Regex.Replace(item, "type=\"\\d*\"", "type=\"18\"");
                     tmp = Regex.Replace(tmp, "dsId=\"\\d*\"", "dsId=\"101\"");
                     System.Console.WriteLine(tmp);
+                    System.Console.WriteLine();
                     rows[index] = tmp;
                 }
 
@@ -64,6 +67,7 @@ class Function
                     string tmp = Regex.Replace(item, "type=\"\\d*\"", "type=\"18\"");
                     tmp = Regex.Replace(tmp, "dsId=\"\\d*\"", "dsId=\"105\"");
                     System.Console.WriteLine(tmp);
+                    System.Console.WriteLine();
                     rows[index] = tmp;
                 }
                 index++;
@@ -91,6 +95,7 @@ class Function
                     System.Console.WriteLine("Found a match in main cfg file:");
                     string tmp = Regex.Replace(item, "diag enable=\"no\"", "diag enable=\"yes\"");
                     System.Console.WriteLine(tmp);
+                    System.Console.WriteLine();
                     rows[index] = tmp;
                 }
                 index++;

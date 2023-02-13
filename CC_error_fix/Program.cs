@@ -16,6 +16,8 @@ class Program
             string pss = path + "pss-config.xml";
 
             System.Console.WriteLine("Script to fix CC errors, that CC can't fix itself");
+            System.Console.WriteLine();
+
 
             fnc.PSSCorrection(pss);
             fnc.PVDBCorrection(pvdb);
