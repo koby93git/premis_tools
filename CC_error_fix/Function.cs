@@ -1,14 +1,13 @@
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 
 class Function
 {
-
     public void PSSCorrection(string pss)
     {
         try
         {
             string [] rows = File.ReadAllLines(pss);
-
             int index = 0;
 
             foreach (var item in rows)
@@ -45,11 +44,10 @@ class Function
     {
         try
         {
-            string [] rows2 = File.ReadAllLines(pvdb);
-
+            string [] rows = File.ReadAllLines(pvdb);
             int index = 0;
 
-            foreach (var item in rows2)
+            foreach (var item in rows)
             {
                 if (Regex.IsMatch(item, "(pvu-trdp-md-101)"))
                 {
@@ -57,7 +55,7 @@ class Function
                     string tmp = Regex.Replace(item, "type=\"\\d*\"", "type=\"18\"");
                     tmp = Regex.Replace(tmp, "dsId=\"\\d*\"", "dsId=\"101\"");
                     System.Console.WriteLine(tmp);
-                    rows2[index] = tmp;
+                    rows[index] = tmp;
                 }
 
                 if (Regex.IsMatch(item, "(pvu-trdp-md-105)"))
@@ -66,12 +64,12 @@ class Function
                     string tmp = Regex.Replace(item, "type=\"\\d*\"", "type=\"18\"");
                     tmp = Regex.Replace(tmp, "dsId=\"\\d*\"", "dsId=\"105\"");
                     System.Console.WriteLine(tmp);
-                    rows2[index] = tmp;
+                    rows[index] = tmp;
                 }
                 index++;
             }
 
-            File.WriteAllLines(pvdb, rows2);
+            File.WriteAllLines(pvdb, rows);
         }
         catch(Exception e)
         {
@@ -83,23 +81,22 @@ class Function
     {
         try
         {
-            string [] rows3 = File.ReadAllLines(mainCFG);
-
+            string [] rows = File.ReadAllLines(mainCFG);
             int index = 0;
 
-            foreach (var item in rows3)
+            foreach (var item in rows)
             {
                 if (Regex.IsMatch(item, "(diag enable=\"no\")"))
                 {
                     System.Console.WriteLine("Found a match in main cfg file:");
                     string tmp = Regex.Replace(item, "diag enable=\"no\"", "diag enable=\"yes\"");
                     System.Console.WriteLine(tmp);
-                    rows3[index] = tmp;
+                    rows[index] = tmp;
                 }
                 index++;
             }
 
-            File.WriteAllLines(mainCFG, rows3);
+            File.WriteAllLines(mainCFG, rows);
         }
         catch(Exception e)
         {
@@ -107,8 +104,14 @@ class Function
         }
     }
 
-    public string GetPath(string title)
+    public string GetLaunchPath()
     {
+        [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "GetStartupInfoA")]
+        static extern void GetStartupInfo(out STARTUPINFO lpStartupInfo);     
+
+        STARTUPINFO info;
+        GetStartupInfo(out info);
+        string title = info.lpTitle;
         int counter = title.Length - 1;
         while(true)
         {

@@ -1,5 +1,5 @@
 ﻿
-using System.Runtime.InteropServices;
+
 using System.Text.RegularExpressions;
 
 class Program
@@ -8,14 +8,8 @@ class Program
     {
         try
         {
-            [DllImport("kernel32.dll", SetLastError = true, EntryPoint = "GetStartupInfoA")]
-            static extern void GetStartupInfo(out STARTUPINFO lpStartupInfo);
-
             Function fnc = new Function();
-
-            STARTUPINFO info;
-            GetStartupInfo(out info);
-            string path = fnc.GetPath(info.lpTitle); 
+            string path = fnc.GetLaunchPath(); 
             //System.Console.WriteLine(path);
             string pvdb = path + "pvu-app-pvdb.cfg";
             string mainCFG = path + "pvu-app.cfg";
