@@ -18,7 +18,6 @@ class Program
             System.Console.WriteLine("Script to fix CC errors, that CC can't fix itself");
             System.Console.WriteLine();
 
-
             fnc.PSSCorrection(pss);
             fnc.PVDBCorrection(pvdb);
             fnc.MainCFGCorrection(mainCFG);
