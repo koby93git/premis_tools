@@ -55,6 +55,7 @@ class Program
         catch(Exception e)
         {
             System.Console.WriteLine("There has been some error: " + e.Message);
+            System.Console.ReadKey();
         }
     }  
 }

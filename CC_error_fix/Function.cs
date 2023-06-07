@@ -12,7 +12,7 @@ class Function
 
             foreach (var item in rows)
             {
-                if (Regex.IsMatch(item, "(pvu-trdp-md-101)"))
+                if (Regex.IsMatch(item, "(pvu.trdp.md.101)"))
                 {
                     System.Console.WriteLine("Found a match message 101 in pss");
                     string tmp = Regex.Replace(item, "type=\"\\d*\"", "type=\"18\"");
@@ -25,7 +25,7 @@ class Function
                     PrintLine(tmp, matches);                    
                 }
 
-                if (Regex.IsMatch(item, "(pvu-trdp-md-105)"))
+                if (Regex.IsMatch(item, "(pvu.trdp.md.105)"))
                 {
                     System.Console.WriteLine("Found a match message 105 in pss");
                     string tmp = Regex.Replace(item, "type=\"\\d*\"", "type=\"18\"");
@@ -57,7 +57,7 @@ class Function
 
             foreach (var item in rows)
             {
-                if (Regex.IsMatch(item, "(pvu-trdp-md-101)"))
+                if (Regex.IsMatch(item, "(pvu.trdp.md.101)"))
                 {
                     System.Console.WriteLine("Found a match message 101 in pvdb");
                     string tmp = Regex.Replace(item, "type=\"\\d*\"", "type=\"18\"");
@@ -70,7 +70,7 @@ class Function
                     PrintLine(tmp, matches);  
                 }
 
-                if (Regex.IsMatch(item, "(pvu-trdp-md-105)"))
+                if (Regex.IsMatch(item, "(pvu.trdp.md.105)"))
                 {
                     System.Console.WriteLine("Found a match message 105 in pvdb");
                     string tmp = Regex.Replace(item, "type=\"\\d*\"", "type=\"18\"");
